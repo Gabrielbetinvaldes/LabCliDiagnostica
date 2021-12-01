@@ -19,26 +19,36 @@ class ConsultarExamenes extends React.Component {
                     <Titulo titulo='Laboratorio Clínico Diagnostica' />
 
 
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
+                        <div className="card shadow mb-4">
+                            <div className="card-header py-3">
                              
 
                                 <form className="user">
                                     <div className="form-group row">
 
                                     <div className="col-sm-2 mb-3 mb-sm-0">
-                                            <h6 class="m-2 font-weight-bold text-success">Tipos De Examenes Medicos</h6>
+                                            <h6 className="m-2 font-weight-bold text-success">Tipos De Examenes Medicos</h6>
                                     </div>
 
 
-                                    <div className="col-sm-7 mb-3 mb-sm-0">
-                                          <input type="text" className="form-control form-control-user" id="exampleFirstName"
-                                             placeholder="Tipo de examen"/>
+                                    <div className="col-sm-7 mb-3 mb-sm-0 form-group">
+                                        <form className="user">                                                                                         
+                                                                                                    
+                                         <select className="form-select" id="exampleFormControlSelect1" >
+                                                <option selected>Seleccionar Examen</option>
+                                                <option>Sangre</option>
+                                                <option>Parcial De Orina</option>
+                                                <option>Perfil Lipidico</option>
+                                                <option>Hemograma Completo</option>
+                                                <option>Glicemia</option>
+                                         </select>
+                                              
+                                         </form>
                                     </div>
 
                                         <div className="col-sm-2">
                                          <a href="login.html" className="btn btn-success btn-user btn-block">
-                                             Buscar
+                                             Mostrar Todos
                                          </a>                                            
                                         </div>
 
@@ -49,10 +59,10 @@ class ConsultarExamenes extends React.Component {
                                    
                                 </form>
                             </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table " id="dataTable" width="100%" cellspacing="0">
-                                        <thead class="table-success">
+                            <div className="card-body">
+                                <div className="table-responsive">
+                                    <table className="table " id="dataTable" width="100%" cellspacing="0">
+                                        <thead className="table-success">
                                             <tr>
                                                 <th>Id Examen</th>
                                                 <th>Nombre Del Examen</th>
@@ -63,14 +73,14 @@ class ConsultarExamenes extends React.Component {
                                             </tr>
                                         </thead>
                                     
-                                        <tbody class="table-light">
+                                        <tbody className="table-light">
                                             <tr>
                                                 <td>001</td>
                                                 <td>Sangre</td>
                                                 <td>10</td>
                                                 <td>15</td>
-                                                <td><a href="#" class="text-decoration-underline">Editar</a></td>
-                                                <td><a href="#" class="text-decoration-underline">Eliminar</a></td>
+                                                <td><a href="#" className="text-decoration-underline">Editar</a></td>
+                                                <td><a href="#" className="text-decoration-underline">Eliminar</a></td>
                                             </tr>
 
                                          
