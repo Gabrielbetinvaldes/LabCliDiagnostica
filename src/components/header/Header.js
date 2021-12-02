@@ -45,11 +45,11 @@ class Header extends React.Component {
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a className="dropdown-item" href="CrearAgenda">Crear</a></li>
                                         <li><hr className="dropdown-divider"/></li>
-                                        <li><a className="dropdown-item" href="#">Consultar</a></li>
+                                        <li><a className="dropdown-item" href="ConsultarAgenda">Consultar</a></li>
                                         <li><hr className="dropdown-divider"/></li>
-                                        <li><a className="dropdown-item" href="#">Citas Disponibles</a></li>
+                                        <li><a className="dropdown-item" href="AgendaDisponible">Citas Disponibles</a></li>
                                         <li><hr className="dropdown-divider"/></li>
-                                        <li><a className="dropdown-item" href="#">Mis citas</a></li>
+                                        <li><a className="dropdown-item" href="CancelarCitas">Cancelar Citas</a></li>
                                     </ul>
                                 </li>
 

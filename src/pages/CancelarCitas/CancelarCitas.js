@@ -5,7 +5,7 @@ import Header from "../../components/header/Header";
 
 
 
-class ConsultarExamenes extends React.Component {
+class CancelarCitas extends React.Component {
 
 
 
@@ -27,7 +27,7 @@ class ConsultarExamenes extends React.Component {
                             <div className="form-group row">
 
                                 <div className="col-sm-2 mb-3 mb-sm-0">
-                                    <h6 className="m-2 font-weight-bold text-success">Tipos De Examenes Medicos</h6>
+                                    <h6 className="m-2 font-weight-bold text-success">Consultar Mis Citas</h6>
                                 </div>
 
 
@@ -46,9 +46,12 @@ class ConsultarExamenes extends React.Component {
                                     </form>
                                 </div>
 
+                                
+                                 
+                               
                                 <div className="col-sm-2">
                                     <a href="login.html" className="btn btn-success btn-user btn-block">
-                                        Mostrar Todos
+                                        Mostrar Todo
                                     </a>
                                 </div>
 
@@ -64,23 +67,21 @@ class ConsultarExamenes extends React.Component {
                             <table className="table " id="dataTable" width="100%" cellspacing="0">
                                 <thead className="table-success">
                                     <tr>
-                                        <th>Id Examen</th>
-                                        <th>Nombre Del Examen</th>
-                                        <th>Rango Minimo</th>
-                                        <th>Rango Maximo</th>
-                                        <th>Editar</th>
-                                        <th>Eliminar</th>
+                                       
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Cancelar</th>
+                                        
                                     </tr>
                                 </thead>
 
                                 <tbody className="table-light">
                                     <tr>
-                                        <td>001</td>
-                                        <td>Sangre</td>
-                                        <td>10</td>
-                                        <td>15</td>
-                                        <td><a href="#" className="text-decoration-underline">Editar</a></td>
-                                        <td><a href="#" className="text-decoration-underline">Eliminar</a></td>
+                                       
+                                        <td>2021/11/30</td>
+                                        <td>07:30 PM</td>
+                                        <td><a href="#" className="text-decoration-underline">Cancelar</a></td>
+                                        
                                     </tr>
 
 
@@ -130,4 +131,4 @@ class ConsultarExamenes extends React.Component {
 
 }
 
-export default ConsultarExamenes
+export default CancelarCitas

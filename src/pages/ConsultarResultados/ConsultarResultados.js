@@ -31,22 +31,22 @@ class ConsultarResultados extends React.Component {
                                         </div>
                                         <form className="user">
                                             <div className="form-group row">
-                                                
+
                                                 <div class="form-group">
-                                                    
+
                                                     <select class="form-select" id="exampleFormControlSelect1" >
-                                                    <option selected>Seleccionar Examen</option>
-                                                    <option>Sangre</option>
-                                                    <option>Parcial De Orina</option>
-                                                    <option>Perfil Lipidico</option>
-                                                    <option>Hemograma Completo</option>
-                                                    <option>Glicemia</option>
+                                                        <option selected>Seleccionar Examen</option>
+                                                        <option>Sangre</option>
+                                                        <option>Parcial De Orina</option>
+                                                        <option>Perfil Lipidico</option>
+                                                        <option>Hemograma Completo</option>
+                                                        <option>Glicemia</option>
                                                     </select>
                                                 </div>
                                             </div>
 
 
-                                        
+
 
                                         </form>
                                         <hr />
@@ -61,8 +61,8 @@ class ConsultarResultados extends React.Component {
                                                             <th>Fecha</th>
                                                             <th>Hora</th>
                                                             <th>Resultado</th>
-                                                            
-                                                            
+
+
                                                         </tr>
                                                     </thead>
 
@@ -73,27 +73,27 @@ class ConsultarResultados extends React.Component {
                                                             <td>2021/11/01</td>
                                                             <td>07:00 PM</td>
                                                             <td>Pendiente</td>
-                                                           
-                                                            
+
+
                                                         </tr>
 
 
 
                                                     </tbody>
                                                 </table>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
-
                 </div>
-                )
+
+
+            </div>
+        )
 
     }
 
