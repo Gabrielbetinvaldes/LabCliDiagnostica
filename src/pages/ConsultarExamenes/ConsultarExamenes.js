@@ -79,8 +79,8 @@ class ConsultarExamenes extends React.Component {
                                         <td>Sangre</td>
                                         <td>10</td>
                                         <td>15</td>
-                                        <td><a href="#" className="text-decoration-underline">Editar</a></td>
-                                        <td><a href="#" className="text-decoration-underline">Eliminar</a></td>
+                                        <td><a href="EditarExamenes" className="text-decoration-underline">Editar</a></td>
+                                        <td><a href="EliminarExamenes" className="text-decoration-underline">Eliminar</a></td>
                                     </tr>
 
 

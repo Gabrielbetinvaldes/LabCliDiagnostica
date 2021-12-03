@@ -5,7 +5,7 @@ import Header from "../../components/header/Header";
 
 
 
-class CrearAgenda extends React.Component {
+class EditarExamenes extends React.Component {
 
 
 
@@ -30,47 +30,38 @@ class CrearAgenda extends React.Component {
 
                             <div className="row">
                                 <div className="col-lg-4 d-none d-lg-block "> <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: '25rem,' }}
-                                    src="img/calendario.png" alt="..." /></div>
+                                    src="img/examen-medico.png" alt="..." /></div>
                                 <div className="col-lg-7">
                                     <div className="p-5">
                                         <div className="text-center">
-                                            <h1 className="h4 text-gray-900 mb-4">Ingresar Agenda</h1>
+                                            <h1 className="h4 text-gray-900 mb-4">Editar Examenes De Laboratorio</h1>
                                         </div>
                                         <form className="user">
                                             <div className="form-group row">
                                                 <div className="col-sm-6 mb-3 mb-sm-0">
                                                     <input type="text" className="form-control form-control-user" id="exampleFirstName"
-                                                        placeholder="Id Cita" />
+                                                        placeholder="Id Examen" />
                                                 </div>
                                                 <div className="col-sm-6">
-                                                    <div class="form-group">
-
-                                                        <select class="form-select" id="exampleFormControlSelect1" >
-                                                            <option selected>Seleccionar Examen</option>
-                                                            <option>Sangre</option>
-                                                            <option>Parcial De Orina</option>
-                                                            <option>Perfil Lipidico</option>
-                                                            <option>Hemograma Completo</option>
-                                                            <option>Glicemia</option>
-                                                        </select>
-                                                    </div>
+                                                    <input type="text" className="form-control form-control-user" id="exampleLastName"
+                                                        placeholder="Nombre del Examen" />
                                                 </div>
                                             </div>
 
                                             <div className="form-group row">
                                                 <div className="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="date" className="form-control form-control-user" id="exampleFirstName"
-                                                    />
+                                                    <input type="text" className="form-control form-control-user" id="exampleFirstName"
+                                                        placeholder="Rango Minimo" />
                                                 </div>
                                                 <div className="col-sm-6">
-                                                    <input type="time" className="form-control form-control-user" id="exampleLastName"
-                                                    />
+                                                    <input type="text" className="form-control form-control-user" id="exampleLastName"
+                                                        placeholder="Rango Maximo" />
                                                 </div>
                                             </div>
 
 
                                             <a href="login.html" className="btn btn-success btn-user btn-block">
-                                                Crear
+                                                Editar
                                             </a>
                                             <hr />
 
@@ -108,4 +99,4 @@ class CrearAgenda extends React.Component {
 
 }
 
-export default CrearAgenda
+export default EditarExamenes
