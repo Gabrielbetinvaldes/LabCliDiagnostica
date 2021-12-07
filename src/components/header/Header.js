@@ -31,10 +31,17 @@ class Header extends React.Component {
                                         Resultados
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+<<<<<<< HEAD
+                                       
+                                        <li><a className="dropdown-item" href="CrearResultados">Crear</a></li>
+                                        <li><hr className="dropdown-divider"/></li>
+                                        <li><a className="dropdown-item" href="ConsultarResultados">Consultar Resultados</a></li>
+=======
 
                                         <li><a className="dropdown-item" href="IngresarResultado">Ingresar</a></li>
                                         <li><hr className="dropdown-divider" /></li>
                                         <li><a className="dropdown-item" href="ConsultarResultados">Consultar</a></li>
+>>>>>>> e6efa20fbf13688d199ff4bc01ec5211b1b68e96
                                     </ul>
                                 </li>
 
