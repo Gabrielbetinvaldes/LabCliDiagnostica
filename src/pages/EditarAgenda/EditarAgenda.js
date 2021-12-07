@@ -5,7 +5,7 @@ import Header from "../../components/header/Header";
 
 
 
-class CrearAgenda extends React.Component {
+class EditarAgenda extends React.Component {
 
 
 
@@ -34,7 +34,7 @@ class CrearAgenda extends React.Component {
                                 <div className="col-lg-7">
                                     <div className="p-5">
                                         <div className="text-center">
-                                            <h1 className="h4 text-gray-900 mb-4">Ingresar Agenda</h1>
+                                            <h1 className="h4 text-gray-900 mb-4">Editar Agenda</h1>
                                         </div>
                                         <form className="user">
                                             <div className="form-group row">
@@ -70,7 +70,7 @@ class CrearAgenda extends React.Component {
 
 
                                             <a href="login.html" className="btn btn-success btn-user btn-block">
-                                                Crear
+                                                Editar
                                             </a>
                                             <hr />
 
@@ -108,4 +108,4 @@ class CrearAgenda extends React.Component {
 
 }
 
-export default CrearAgenda
+export default EditarAgenda

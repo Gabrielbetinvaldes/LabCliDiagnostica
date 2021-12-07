@@ -5,7 +5,7 @@ import Header from "../../components/header/Header";
 
 
 
-class ConsultarExamenes extends React.Component {
+class ConsultarAgenda extends React.Component {
 
 
 
@@ -27,11 +27,11 @@ class ConsultarExamenes extends React.Component {
                             <div className="form-group row">
 
                                 <div className="col-sm-2 mb-3 mb-sm-0">
-                                    <h6 className="m-2 font-weight-bold text-success">Tipos De Examenes Medicos</h6>
+                                    <h6 className="m-2 font-weight-bold text-success">Consultar Agendas Creadas</h6>
                                 </div>
 
 
-                                <div className="col-sm-7 mb-3 mb-sm-0 form-group">
+                                <div className="col-sm-4 mb-3 mb-sm-0 form-group">
                                     <form className="user">
 
                                         <select className="form-select" id="exampleFormControlSelect1" >
@@ -46,9 +46,15 @@ class ConsultarExamenes extends React.Component {
                                     </form>
                                 </div>
 
+                                
+                                    <div className="col-sm-4 mb-3 mb-sm-0 form-group">
+                                        <input type="date" className="form-control form-control-user" id="exampleFirstName"
+                                        />
+                                    </div>
+                               
                                 <div className="col-sm-2">
                                     <a href="login.html" className="btn btn-success btn-user btn-block">
-                                        Mostrar Todos
+                                        Buscar
                                     </a>
                                 </div>
 
@@ -64,10 +70,10 @@ class ConsultarExamenes extends React.Component {
                             <table className="table " id="dataTable" width="100%" cellspacing="0">
                                 <thead className="table-success">
                                     <tr>
-                                        <th>Id Examen</th>
+                                        <th>Id Cita</th>
                                         <th>Nombre Del Examen</th>
-                                        <th>Rango Minimo</th>
-                                        <th>Rango Maximo</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
                                         <th>Editar</th>
                                         <th>Eliminar</th>
                                     </tr>
@@ -79,8 +85,8 @@ class ConsultarExamenes extends React.Component {
                                         <td>Sangre</td>
                                         <td>10</td>
                                         <td>15</td>
-                                        <td><a href="EditarExamenes" className="text-decoration-underline">Editar</a></td>
-                                        <td><a href="EliminarExamenes" className="text-decoration-underline">Eliminar</a></td>
+                                        <td><a href="EditarAgenda" className="text-decoration-underline">Editar</a></td>
+                                        <td><a href="EliminarAgenda" className="text-decoration-underline">Eliminar</a></td>
                                     </tr>
 
 
@@ -130,4 +136,4 @@ class ConsultarExamenes extends React.Component {
 
 }
 
-export default ConsultarExamenes
+export default ConsultarAgenda

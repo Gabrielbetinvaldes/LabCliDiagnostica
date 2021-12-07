@@ -14,20 +14,20 @@ class Dashboard extends React.Component {
 
             <div>
 
-                <Header/>
+                <Header />
                 <Titulo titulo='Laboratorio Clínico Diagnostica' />
-                <div className="text-center "> <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: '25rem,'}}
-                                                                        src="img/Logo.jpeg" alt="..."/></div>
-               
+                <div className="text-center "> <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: '25rem,' }}
+                    src="img/Logo.jpeg" alt="..." /></div>
+
 
             </div>
 
-            
-    
 
-                                         
 
-                                                        
+
+
+
+
 
         )
     }
@@ -35,4 +35,4 @@ class Dashboard extends React.Component {
 
 }
 
-                            export default Dashboard
+export default Dashboard

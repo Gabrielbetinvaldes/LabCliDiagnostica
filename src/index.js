@@ -1,4 +1,6 @@
+
 import React from "react";
+<<<<<<< HEAD
 import ReactDOM from "react-dom";
 import App from './App'
 import Login from './pages/Login/Login'
@@ -8,10 +10,16 @@ import CrearExamenes from "./pages/CrearExamenes/CrearExamenes";
 import ConsultarExamenes from "./pages/ConsultarExamenes/ConsultarExamenes";
 import CrearResultados from "./pages/CrearResultados/CrearResultados";
 import ConsultarResultados from "./pages/ConsultarResultados/ConsultarResultados";
+=======
+import ReactDOM from "react-dom"
 
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import App from "./App";
+>>>>>>> e6efa20fbf13688d199ff4bc01ec5211b1b68e96
+
+ReactDOM.render(<App />, document.getElementById('root'))
   
 
+<<<<<<< HEAD
 ReactDOM.render(
     <React.StrictMode>
     <Router>
@@ -27,12 +35,10 @@ ReactDOM.render(
     <Route exact path="/App" element={<App/>} />   
       
     
+=======
+>>>>>>> e6efa20fbf13688d199ff4bc01ec5211b1b68e96
 
     
-    </Routes>
-    </Router>
-    </React.StrictMode>
-    ,
-    document.getElementById('root')
-    );
+   
+  
     

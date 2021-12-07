@@ -14,15 +14,15 @@ class Header extends React.Component {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                
+
                                 <li className="nav-item dropdown">
                                     <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Examenes
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        
+
                                         <li><a className="dropdown-item" href="CrearExamenes">Crear</a></li>
-                                        <li><hr className="dropdown-divider"/></li>
+                                        <li><hr className="dropdown-divider" /></li>
                                         <li><a className="dropdown-item" href="ConsultarExamenes">Consultar</a></li>
                                     </ul>
                                 </li>
@@ -31,46 +31,76 @@ class Header extends React.Component {
                                         Resultados
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+<<<<<<< HEAD
                                        
                                         <li><a className="dropdown-item" href="CrearResultados">Crear</a></li>
                                         <li><hr className="dropdown-divider"/></li>
                                         <li><a className="dropdown-item" href="ConsultarResultados">Consultar Resultados</a></li>
+=======
+
+                                        <li><a className="dropdown-item" href="IngresarResultado">Ingresar</a></li>
+                                        <li><hr className="dropdown-divider" /></li>
+                                        <li><a className="dropdown-item" href="ConsultarResultados">Consultar</a></li>
+>>>>>>> e6efa20fbf13688d199ff4bc01ec5211b1b68e96
                                     </ul>
                                 </li>
-                               
+
                                 <li className="nav-item dropdown">
                                     <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Agendamiento
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a className="dropdown-item" href="CrearAgenda">Crear</a></li>
-                                        <li><hr className="dropdown-divider"/></li>
-                                        <li><a className="dropdown-item" href="#">Consultar</a></li>
-                                        <li><hr className="dropdown-divider"/></li>
-                                        <li><a className="dropdown-item" href="#">Citas Disponibles</a></li>
-                                        <li><hr className="dropdown-divider"/></li>
-                                        <li><a className="dropdown-item" href="#">Mis citas</a></li>
+                                        <li><a className="dropdown-item" href="CrearAgenda">Crear</a></li>
+                                        <li><hr className="dropdown-divider" /></li>
+                                        <li><a className="dropdown-item" href="ConsultarAgenda">Consultar</a></li>
+                                        <li><hr className="dropdown-divider" /></li>
+                                        <li><a className="dropdown-item" href="AgendaDisponible">Citas Disponibles</a></li>
+                                        <li><hr className="dropdown-divider" /></li>
+                                        <li><a className="dropdown-item" href="CancelarCitas">Cancelar Citas</a></li>
                                     </ul>
                                 </li>
 
                                 <li className="nav-item ">
-                                    <a className="nav-link " href="#" id="" role="button" data-bs-toggle="" aria-expanded="false">
-                                       Notificaciones
+                                    <a className="nav-link " href="Notificaciones" id="" role="button" data-bs-toggle="" aria-expanded="false">
+                                        Notificaciones
+
                                     </a>
-                                                                          
-                                   
+
+
                                 </li>
-                               
+
+                                <li className="nav-item ">
+                                    <a className="nav-link " href="Notificaciones" id="" role="button" data-bs-toggle="" aria-expanded="false">
+
+
+                                        <i class="fas fa-envelope fa-fw"></i>
+
+                                        <span class="badge badge-danger badge-counter">1</span>
+                                    </a>
+
+
+                                </li>
+
                             </ul>
 
-  
+
+
                             <form className="d-flex">
-                                
-                                <button class ="btn btn-outline-success" type ="submit">Salir</button>
+
+                                <a className="nav-link " style={{ color: 'white' }} href="" id="" role="button" data-bs-toggle="" aria-expanded="false">
+                                    Gabriel Betin Valdes
+                                </a>
+
+                                <img class="rounded-circle" style={{ width: '50px' }} src="img/undraw_profile_2.svg" />
+                                <button class="btn btn-outline-success" type="submit"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Salir</button>
+
                             </form>
                         </div>
                     </div>
                 </nav>
+
+
+
 
             </div>
 
