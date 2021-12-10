@@ -1,22 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Titulo from "../../components/Titulo/Titulo";
 import Header from "../../components/header/Header";
 
 
 
 
-class CrearExamenes extends React.Component {
+const CrearExamenes = () => {
+    
+   
+    return (
 
-
-
-    render() {
-        return (
-
+            
 
             <div>
 
                 <Header />
                 <Titulo titulo='Laboratorio Clínico Diagnostica' />
+                            
+                              
 
                 <div className="container">
 
@@ -39,28 +40,28 @@ class CrearExamenes extends React.Component {
                                         <form className="user">
                                             <div className="form-group row">
                                                 <div className="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" className="form-control form-control-user" id="exampleFirstName"
+                                                    <input type="text" className="form-control form-control-user" id="idExamen"
                                                         placeholder="Id Examen" />
                                                 </div>
                                                 <div className="col-sm-6">
-                                                    <input type="text" className="form-control form-control-user" id="exampleLastName"
+                                                    <input type="text" className="form-control form-control-user" id="nombreExamen"
                                                         placeholder="Nombre del Examen" />
                                                 </div>
                                             </div>
 
                                             <div className="form-group row">
                                                 <div className="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" className="form-control form-control-user" id="exampleFirstName"
+                                                    <input type="text" className="form-control form-control-user" id="minimoExamen"
                                                         placeholder="Rango Minimo" />
                                                 </div>
                                                 <div className="col-sm-6">
-                                                    <input type="text" className="form-control form-control-user" id="exampleLastName"
+                                                    <input type="text" className="form-control form-control-user" id="maximoExamen"
                                                         placeholder="Rango Maximo" />
                                                 </div>
                                             </div>
 
 
-                                            <a href="login.html" className="btn btn-success btn-user btn-block">
+                                            <a href="#" className="btn btn-success btn-user btn-block">
                                                 Crear
                                             </a>
                                             <hr />
@@ -79,24 +80,9 @@ class CrearExamenes extends React.Component {
 
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         )
     }
 
 
-}
 
 export default CrearExamenes

@@ -4,6 +4,7 @@ import Titulo from "../../components/Titulo/Titulo";
 
 
 
+
 class Registro extends React.Component {
 
 
@@ -31,6 +32,8 @@ class Registro extends React.Component {
                                         <div className="col-sm-6 mb-3 mb-sm-0">
                                             <input type="text" className="form-control form-control-user" id="exampleFirstName"
                                                 placeholder="Nombres"/>
+                                                
+                                                
                                         </div>
                                         <div className="col-sm-6">
                                             <input type="text" className="form-control form-control-user" id="exampleLastName"
