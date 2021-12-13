@@ -4,6 +4,7 @@ import Registro from "./pages/Registro/Registro";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import CrearExamenes from "./pages/CrearExamenes/CrearExamenes";
 import ConsultarExamenes from "./pages/ConsultarExamenes/ConsultarExamenes";
+import ConsultarExamenesId from "./pages/ConsultarExamenesId/ConsultarExamenesId";
 import CrearResultados from "./pages/CrearResultados/CrearResultados";
 import ConsultarResultados from "./pages/ConsultarResultados/ConsultarResultados";
 import CrearAgenda from "./pages/CrearAgenda/CrearAgenda";
@@ -15,6 +16,7 @@ import EliminarExamenes from "./pages/EliminarExamenes/EliminarExamenes";
 import EditarAgenda from "./pages/EditarAgenda/EditarAgenda";
 import EliminarAgenda from "./pages/EliminarAgenda/EliminarAgenda";
 import Notificaciones from "./pages/Notificaciones/Notificaciones";
+import RegistroAdmin from "./pages/RegistroAdmin/RegistroAdmin";
 
 
 
@@ -30,11 +32,13 @@ class App extends React.Component {
 
                     <Route path="/" element={<Login />} />
                     <Route path="/Registro" element={<Registro />} />
+                    <Route path="/RegistroAdmin" element={<RegistroAdmin />} />
                     <Route path="/Dashboard" element={<Dashboard />} />
                     <Route path="/CrearExamenes" element={<CrearExamenes />} />
                     <Route path="/EditarExamenes" element={<EditarExamenes />} />
                     <Route path="/EliminarExamenes" element={<EliminarExamenes />} />
                     <Route path="/ConsultarExamenes" element={<ConsultarExamenes />} />
+                    <Route path="/ConsultarExamenes/:id_examen" element={<ConsultarExamenesId />} />
                     <Route path="/IngresarResultado" element={<CrearResultados />} />
                     <Route path="/ConsultarResultados" element={<ConsultarResultados />} />
                     <Route path="/CrearAgenda" element={<CrearAgenda />} />

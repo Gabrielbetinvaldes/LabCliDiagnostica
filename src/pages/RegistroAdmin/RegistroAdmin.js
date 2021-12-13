@@ -2,7 +2,7 @@ import React from "react";
 import Titulo from "../../components/Titulo/Titulo";
 
 
-const Registro = ()  => {
+const RegistroAdmin = ({bus})  => {
 
 
     const enviar_formulario = (e) => {
@@ -12,7 +12,7 @@ const Registro = ()  => {
             nombre: e.target.nombre.value,
             apellido: e.target.apellido.value,
             correo: e.target.correo.value,
-            rol:"3",
+            rol: e.target.rol.value,
             password: e.target.password.value,
           
         }
@@ -71,6 +71,10 @@ const Registro = ()  => {
                                             placeholder="Direccion de email"   name="correo"/>
                                     </div>
                                     <div className="form-group row">
+                                    <div className="col-sm-6 mb-3 mb-sm-0">
+                                            <input type="text" className="form-control form-control-user"
+                                                id="exampleLastName" placeholder="Rol" name="rol" />
+                                        </div>
                                         <div className="col-sm-6 mb-3 mb-sm-0">
                                             <input type="password" className="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Contraseña" name="password" />
@@ -105,4 +109,4 @@ const Registro = ()  => {
 
 }
 
-export default Registro
+export default RegistroAdmin

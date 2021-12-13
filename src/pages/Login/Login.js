@@ -50,6 +50,8 @@ class Login extends React.Component {
                                                 </a>
                                                 <hr />
 
+                                                <a className="small" href="/Registro">Crear una cuenta</a>
+
                                             </form>
 
                                         </div>

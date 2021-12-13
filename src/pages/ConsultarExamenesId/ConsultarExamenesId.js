@@ -1,30 +1,41 @@
 import React, { useState, useEffect } from "react";
 import Titulo from "../../components/Titulo/Titulo";
 import Header from "../../components/header/Header";
+import { useParams } from "react-router-dom";
 
 
 
 
-const ConsultarExamenes = () => {
+const ConsultarExamenesId = (props) => {
 
     const [examenes, setExamenes] = useState([]);
     const [examenesD, setExamenesD] = useState([]);
+    const [examenesId, setExamenesId] = useState([]);
+
+    let { id_examen } = useParams();
 
 
-
-    let clickBoton = () => {
-        fetch("http://localhost:8080/api/Examenes")
-            .then((response) => response.json())
-            .then((data) => {
-                setExamenes(data);
-            });
-    };
 
     useEffect(() => {
         obtener_examen();
-        clickBoton();
+        fetch(`http://localhost:8080/api/Examenes/${id_examen}`)
+        .then((response) => response.json())
+        .then((data) => {
+            setExamenesId(data);
+        });
+      
         
     });
+
+  
+
+    const obtener_examen = () => {
+        fetch("http://localhost:8080/api/Examenes")
+            .then((response) => response.json())
+            .then((data) => {
+                setExamenesD(data);
+            });
+    };
 
     const click_eliminar = (e) => {
         const id =  e.target.id
@@ -46,24 +57,6 @@ const ConsultarExamenes = () => {
             window.location.href = "/ConsultarExamenes";
           });
       };
-    const obtener_examen = () => {
-        fetch("http://localhost:8080/api/Examenes")
-            .then((response) => response.json())
-            .then((data) => {
-                setExamenesD(data);
-            });
-    };
-
-    const obtener_examenId = (id_examen) => {
-        fetch(`http://localhost:8080/api/Examenes/${id_examen}`)
-            .then((response) => response.json())
-            .then((data) => {
-                setExamenesD(data);
-            });
-    };
-
-    
-
 
 
     return (
@@ -108,8 +101,7 @@ const ConsultarExamenes = () => {
 
 
 
-                    
-
+              
 
                     </div>
 
@@ -132,22 +124,20 @@ const ConsultarExamenes = () => {
                             </thead>
 
                             <tbody className="table-light">
-                                {examenes.map((examen) => {
-                                    return (
-                                        <tr key={examen._id}>
-                                            <td>{examen._id}</td>
-                                            <td>{examen.nombre}</td>
-                                            <td>{examen.rangoMin}</td>
-                                            <td>{examen.rangoMax}</td>
-                                            
+                                
+                                   
+                                        <tr key={examenesId._id}>
+                                            <td>{examenesId._id}</td>
+                                            <td>{examenesId.nombre}</td>
+                                            <td>{examenesId.rangoMin}</td>
+                                            <td>{examenesId.rangoMax}</td>
                                             <td><button type="submit"  className="btn btn-success btn-user btn-block">  Editar </button> </td>
 
                                           
-<td><button id={examen._id} onClick={click_eliminar} href="/ConsultarExamenes" className="btn btn-success btn-user btn-block">  Eliminar </button> </td>
+                                            <td><button id={examenesId._id} onClick={click_eliminar} href="/ConsultarExamenes" className="btn btn-success btn-user btn-block">  Eliminar </button> </td>
                                         </tr>
 
-                                    );
-                                })}
+                               
 
                             </tbody>
                             <tfoot></tfoot>
@@ -182,4 +172,4 @@ const ConsultarExamenes = () => {
 
 
 
-export default ConsultarExamenes;
+export default ConsultarExamenesId;

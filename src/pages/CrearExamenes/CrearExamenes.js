@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Titulo from "../../components/Titulo/Titulo";
 import Header from "../../components/header/Header";
 
@@ -6,6 +6,37 @@ import Header from "../../components/header/Header";
 
 
 const CrearExamenes = () => {
+
+
+    const enviar_formulario = (e) => {
+        e.preventDefault()
+
+        const examen = {
+            nombre: e.target.nombre.value,
+            rangoMin: e.target.minimo.value,
+            rangoMax: e.target.maximo.value,
+                   
+        }
+
+        datos_examen(examen)
+
+    }
+
+    const datos_examen = (examen) => {
+        fetch("http://localhost:8080/api/crear_examen", {
+            method: "POST",
+            body: JSON.stringify(examen),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((res) => res.json())
+            .catch((error) => console.error("Error:", error))
+            .then((response) => {
+                window.location.href = "/CrearExamenes";
+            });
+
+    }
     
    
     return (
@@ -37,33 +68,28 @@ const CrearExamenes = () => {
                                         <div className="text-center">
                                             <h1 className="h4 text-gray-900 mb-4">Ingresar Examenes De Laboratorio</h1>
                                         </div>
-                                        <form className="user">
+                                        <form className="user" onSubmit={enviar_formulario}>
                                             <div className="form-group row">
-                                                <div className="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" className="form-control form-control-user" id="idExamen"
-                                                        placeholder="Id Examen" />
-                                                </div>
-                                                <div className="col-sm-6">
+                                                                                             
                                                     <input type="text" className="form-control form-control-user" id="nombreExamen"
-                                                        placeholder="Nombre del Examen" />
-                                                </div>
+                                                        placeholder="Nombre del Examen" name= "nombre"/>
+                                                
                                             </div>
 
                                             <div className="form-group row">
                                                 <div className="col-sm-6 mb-3 mb-sm-0">
                                                     <input type="text" className="form-control form-control-user" id="minimoExamen"
-                                                        placeholder="Rango Minimo" />
+                                                        placeholder="Rango Minimo" name= "minimo" />
                                                 </div>
                                                 <div className="col-sm-6">
                                                     <input type="text" className="form-control form-control-user" id="maximoExamen"
-                                                        placeholder="Rango Maximo" />
+                                                        placeholder="Rango Maximo"  name= "maximo"/>
                                                 </div>
                                             </div>
 
+                                     
 
-                                            <a href="#" className="btn btn-success btn-user btn-block">
-                                                Crear
-                                            </a>
+                                            <button type="submit"  className="btn btn-success btn-user btn-block">  Crear examen </button>
                                             <hr />
 
                                         </form>
