@@ -1,16 +1,18 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import Titulo from "../../components/Titulo/Titulo";
 
 
 const Registro = ()  => {
 
+    let navigate = useNavigate();
 
     const enviar_formulario = (e) => {
         e.preventDefault()
 
         const usuario = {
             nombre: e.target.nombre.value,
-            apellido: e.target.apellido.value,
+            cedula: e.target.cedula.value,
             correo: e.target.correo.value,
             rol:"3",
             password: e.target.password.value,
@@ -27,12 +29,14 @@ const Registro = ()  => {
             body: JSON.stringify(usuario),
             headers: {
                 "Content-Type": "application/json",
+                
             },
         })
             .then((res) => res.json())
             .catch((error) => console.error("Error:", error))
             .then((response) => {
-                window.location.href = "/";
+                navigate("/");
+                alert('Usuario registrado')
             });
 
     }
@@ -63,7 +67,7 @@ const Registro = ()  => {
                                         </div>
                                         <div className="col-sm-6">
                                             <input type="text" className="form-control form-control-user" id="exampleLastName"
-                                                placeholder="Apellidos"  name="apellido"/>
+                                                placeholder="Documento de identidad"  name="cedula"/>
                                         </div>
                                     </div>
                                     <div className="form-group">

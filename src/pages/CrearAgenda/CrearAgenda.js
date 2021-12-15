@@ -1,94 +1,152 @@
-import React from "react";
+
 import Titulo from "../../components/Titulo/Titulo";
 import Header from "../../components/header/Header";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 
 
 
-class CrearAgenda extends React.Component {
+const CrearAgenda = ({ token }) => {
+
+    const [examenesD, setExamenesD] = useState([]);
+
+    useEffect(() => {
+        obtener_examen();
+
+
+    });
+
+
+    const obtener_examen = () => {
+        fetch("http://localhost:8080/api/Examenes")
+            .then((response) => response.json())
+            .then((data) => {
+                setExamenesD(data);
+            });
+    };
+
+    let navigate = useNavigate();
 
 
 
-    render() {
-        return (
+    const enviar_formulario = (e) => {
+        e.preventDefault()
+
+        const agenda = {
+
+            examen:"",
+            dia: e.target.fecha.value,
+            hora: e.target.hora.value,
+            paciente: "",
+            nombre: "",
+            estado: "Disponible",
+            resultado: "Pendiente",
 
 
-            <div>
+        }
 
-                <Header />
-                <Titulo titulo='Laboratorio Clínico Diagnostica' />
+        datos_agenda(agenda)
 
-                <div className="container">
+    }
+
+    const datos_agenda = (agenda) => {
+        fetch("http://localhost:8080/api/crear_agenda", {
+            method: "POST",
+            body: JSON.stringify(agenda),
+            headers: {
+                "Content-Type": "application/json",
+                'auth-token-jwt': token
+            },
+        })
+            .then((res) => res.json())
+            .catch((error) => console.error("Error:", error))
+            .then((response) => {
+                navigate("/CrearAgenda");
+                alert('Agenda Creada')
+
+            });
+
+    }
+
+
+
+    return (
+
+
+        <div>
+
+            <Header />
+            <Titulo titulo='Laboratorio Clínico Diagnostica' />
+
+            <div className="container">
 
 
 
 
-                    <div className="card o-hidden border-0 shadow-lg my-5">
+                <div className="card o-hidden border-0 shadow-lg my-5">
 
 
-                        <div className="card-body p-0">
+                    <div className="card-body p-0">
 
-                            <div className="row">
-                                <div className="col-lg-4 d-none d-lg-block "> <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: '25rem,' }}
-                                    src="img/calendario.png" alt="..." /></div>
-                                <div className="col-lg-7">
-                                    <div className="p-5">
-                                        <div className="text-center">
-                                            <h1 className="h4 text-gray-900 mb-4">Ingresar Agenda</h1>
+                        <div className="row">
+                            <div className="col-lg-4 d-none d-lg-block "> <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: '25rem,' }}
+                                src="img/calendario.png" alt="..." /></div>
+                            <div className="col-lg-7">
+                                <div className="p-5">
+                                    <div className="text-center">
+                                        <h1 className="h4 text-gray-900 mb-4">Ingresar Agenda</h1>
+                                    </div>
+                                    <form className="user" onSubmit={enviar_formulario}>
+                                        <div className="form-group row">
+
+                                            <div className="col-sm-12">
+                                                <div class="form-group">
+
+                                                    <select name="fecha" class="form-select" id="exampleFormControlSelect1" >
+                                                        <option selected>Seleccionar Examen</option>
+
+                                                        {examenesD.map((examenD) => {
+                                                            return (
+                                                                
+                                                                <option vakue="nombre" value= {examenD.nombre}>{examenD.nombre}</option>
+                                                            );
+                                                        })}
+                                                        
+                                                      
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <form className="user">
-                                            <div className="form-group row">
-                                                <div className="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" className="form-control form-control-user" id="exampleFirstName"
-                                                        placeholder="Id Cita" />
-                                                </div>
-                                                <div className="col-sm-6">
-                                                    <div class="form-group">
 
-                                                        <select class="form-select" id="exampleFormControlSelect1" >
-                                                            <option selected>Seleccionar Examen</option>
-                                                            <option>Sangre</option>
-                                                            <option>Parcial De Orina</option>
-                                                            <option>Perfil Lipidico</option>
-                                                            <option>Hemograma Completo</option>
-                                                            <option>Glicemia</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                        <div className="form-group row">
+                                            <div className="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="date" className="form-control form-control-user" id="fecha"
+                                                    name="fecha" />
                                             </div>
-
-                                            <div className="form-group row">
-                                                <div className="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="date" className="form-control form-control-user" id="exampleFirstName"
-                                                    />
-                                                </div>
-                                                <div className="col-sm-6">
-                                                    <input type="time" className="form-control form-control-user" id="exampleLastName"
-                                                    />
-                                                </div>
+                                            <div className="col-sm-6">
+                                                <input type="time" className="form-control form-control-user" id="hora"
+                                                    name="hora" />
                                             </div>
+                                        </div>
 
+                                        <button type="submit" className="btn btn-success btn-user btn-block">  Crear Agenda </button>
 
-                                            <a href="login.html" className="btn btn-success btn-user btn-block">
-                                                Crear
-                                            </a>
-                                            <hr />
-
-                                        </form>
                                         <hr />
 
-                                    </div>
+                                    </form>
+                                    <hr />
+
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
 
             </div>
 
 
+        </div>
 
 
 
@@ -102,10 +160,12 @@ class CrearAgenda extends React.Component {
 
 
 
-        )
-    }
 
 
+    )
 }
+
+
+
 
 export default CrearAgenda

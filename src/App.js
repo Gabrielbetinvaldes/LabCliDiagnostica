@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "react-notifications/lib/notifications.css";
 import Login from './pages/Login/Login'
 import Registro from "./pages/Registro/Registro";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -20,46 +22,48 @@ import RegistroAdmin from "./pages/RegistroAdmin/RegistroAdmin";
 
 
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-
-class App extends React.Component {
-
-    render() {
-        return (
-
-            <BrowserRouter>
-                <Routes>
-
-                    <Route path="/" element={<Login />} />
-                    <Route path="/Registro" element={<Registro />} />
-                    <Route path="/RegistroAdmin" element={<RegistroAdmin />} />
-                    <Route path="/Dashboard" element={<Dashboard />} />
-                    <Route path="/CrearExamenes" element={<CrearExamenes />} />
-                    <Route path="/EditarExamenes" element={<EditarExamenes />} />
-                    <Route path="/EliminarExamenes" element={<EliminarExamenes />} />
-                    <Route path="/ConsultarExamenes" element={<ConsultarExamenes />} />
-                    <Route path="/ConsultarExamenes/:id_examen" element={<ConsultarExamenesId />} />
-                    <Route path="/IngresarResultado" element={<CrearResultados />} />
-                    <Route path="/ConsultarResultados" element={<ConsultarResultados />} />
-                    <Route path="/CrearAgenda" element={<CrearAgenda />} />
-                    <Route path="/EditarAgenda" element={<EditarAgenda />} />
-                    <Route path="/EliminarAgenda" element={<EliminarAgenda />} />
-                    <Route path="/ConsultarAgenda" element={<ConsultarAgenda />} />
-                    <Route path="/AgendaDisponible" element={<AgendaDisponible />} />
-                    <Route path="/CancelarCitas" element={<CancelarCitas/>} />
-                    <Route path="/Notificaciones" element={<Notificaciones/>} />
-                    
 
 
-                </Routes>
-            </BrowserRouter>
+const App = () => {
+    const [token, setToken] = useState("");
 
-        );
+    const recibir_token = (token, navegacion) => {
+        setToken(token);
+        navegacion("/Dashboard");
+    };
 
-    }
+    return (
+
+        <BrowserRouter>
+            <Routes>
+
+                <Route path="/" element={<Login bus={recibir_token}/>} />
+                <Route path="/Registro" element={<Registro />} />
+                <Route path="/RegistroAdmin" element={<RegistroAdmin />} />
+                <Route path="/Dashboard" element={<Dashboard />} />
+                <Route path="/CrearExamenes" element={<CrearExamenes />} />
+                <Route path="/EditarExamenes" element={<EditarExamenes />} />
+                <Route path="/EliminarExamenes" element={<EliminarExamenes />} />
+                <Route path="/ConsultarExamenes" element={<ConsultarExamenes />} />
+                <Route path="/ConsultarExamenes/:id_examen" element={<ConsultarExamenesId />} />
+                <Route path="/IngresarResultado" element={<CrearResultados />} />
+                <Route path="/ConsultarResultados" element={<ConsultarResultados />} />
+                <Route path="/CrearAgenda" element={<CrearAgenda />} />
+                <Route path="/EditarAgenda" element={<EditarAgenda />} />
+                <Route path="/EliminarAgenda" element={<EliminarAgenda />} />
+                <Route path="/ConsultarAgenda" element={<ConsultarAgenda />} />
+                <Route path="/AgendaDisponible" element={<AgendaDisponible />} />
+                <Route path="/CancelarCitas" element={<CancelarCitas />} />
+                <Route path="/Notificaciones" element={<Notificaciones />} />
 
 
+
+            </Routes>
+        </BrowserRouter>
+
+    );
 
 }
+
 
 export default App;

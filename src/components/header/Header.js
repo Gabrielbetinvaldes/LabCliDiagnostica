@@ -1,8 +1,9 @@
 import React from "react";
 
-class Header extends React.Component {
 
-    render() {
+const Header = () =>  {
+
+
         return (
             <div>
 
@@ -31,7 +32,8 @@ class Header extends React.Component {
                                         Examenes
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-
+                                     
+                                            
                                         <li><a className="dropdown-item" href="/CrearExamenes">Crear</a></li>
                                         <li><hr className="dropdown-divider" /></li>
                                         <li><a className="dropdown-item" href="/ConsultarExamenes">Consultar</a></li>
@@ -113,6 +115,5 @@ class Header extends React.Component {
 
 
 
-}
 
 export default Header

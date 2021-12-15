@@ -1,16 +1,17 @@
 import React from "react";
 import Titulo from "../../components/Titulo/Titulo";
+import { useNavigate } from 'react-router-dom';
 
 
 const RegistroAdmin = ({bus})  => {
 
-
+    let navigate = useNavigate();
     const enviar_formulario = (e) => {
         e.preventDefault()
 
         const usuario = {
             nombre: e.target.nombre.value,
-            apellido: e.target.apellido.value,
+            cedula: e.target.cedula.value,
             correo: e.target.correo.value,
             rol: e.target.rol.value,
             password: e.target.password.value,
@@ -32,7 +33,8 @@ const RegistroAdmin = ({bus})  => {
             .then((res) => res.json())
             .catch((error) => console.error("Error:", error))
             .then((response) => {
-                window.location.href = "/";
+                navigate("/RegistroAdmin");
+                alert('Usuario Creado')
             });
 
     }
@@ -63,7 +65,7 @@ const RegistroAdmin = ({bus})  => {
                                         </div>
                                         <div className="col-sm-6">
                                             <input type="text" className="form-control form-control-user" id="exampleLastName"
-                                                placeholder="Apellidos"  name="apellido"/>
+                                                placeholder="Documento de identidad"  name="cedula"/>
                                         </div>
                                     </div>
                                     <div className="form-group">
