@@ -23,29 +23,29 @@ const ConsultarExamenes = () => {
     useEffect(() => {
         obtener_examen();
         clickBoton();
-        
+
     });
 
     const click_eliminar = (e) => {
-        const id =  e.target.id
-                               
+        const id = e.target.id
+
         eliminar_examen(id);
-      }
+    }
 
 
 
     const eliminar_examen = (id_examen) => {
         fetch(`http://localhost:8080/api/eliminar_examen/${id_examen}`, {
             method: 'DELETE',
-            headers:{
-              'Content-Type': 'application/json'
+            headers: {
+                'Content-Type': 'application/json'
             }
-          }).then(res => res.json())
-          .catch(error => console.error('Error:', error))
-          .then(response => {
-            window.location.href = "/ConsultarExamenes";
-          });
-      };
+        }).then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(response => {
+                window.location.href = "/ConsultarExamenes";
+            });
+    };
     const obtener_examen = () => {
         fetch("http://localhost:8080/api/Examenes")
             .then((response) => response.json())
@@ -62,7 +62,7 @@ const ConsultarExamenes = () => {
             });
     };
 
-    
+
 
 
 
@@ -98,17 +98,17 @@ const ConsultarExamenes = () => {
                                     {examenesD.map((examenD) => {
                                         return (
                                             <a class="dropdown-item" href={`/ConsultarExamenes/${examenD._id}`}>{examenD.nombre}</a>
-                                           
+
                                         );
                                     })}
-                                  
+
                                 </div>
                             </div>
                         </div>
 
 
 
-                    
+
 
 
                     </div>
@@ -139,11 +139,11 @@ const ConsultarExamenes = () => {
                                             <td>{examen.nombre}</td>
                                             <td>{examen.rangoMin}</td>
                                             <td>{examen.rangoMax}</td>
-                                            
-                                            <td><button type="submit"  className="btn btn-success btn-user btn-block">  Editar </button> </td>
 
-                                          
-<td><button id={examen._id} onClick={click_eliminar} href="/ConsultarExamenes" className="btn btn-success btn-user btn-block">  Eliminar </button> </td>
+                                            <td><button type="submit" className="btn btn-success btn-user btn-block">  Editar </button> </td>
+
+
+                                            <td><button id={examen._id} onClick={click_eliminar} href="/ConsultarExamenes" className="btn btn-success btn-user btn-block">  Eliminar </button> </td>
                                         </tr>
 
                                     );

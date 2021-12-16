@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from "react";
 import Titulo from "../../components/Titulo/Titulo";
 import Header from "../../components/header/Header";
+import { useParams } from "react-router-dom";
 
 
 
 
-const AgendaDisponible =() => {
+const AgendaDisponibleId =(props) => {
+
 
     const [agendas, setAgendas] = useState([]);
     const [examenesD, setExamenesD] = useState([]);
+    const [agendasId, setAgendasId] = useState([]);
+    let { nombre_examen } = useParams();
 
     useEffect(() => {
         obtener_examen();
-        clickBoton();
-
+        fetch(`http://localhost:8080/api/Agendas/${nombre_examen}`)
+        .then((response) => response.json())
+        .then((data) => {
+            setAgendasId(data);
+        });
     });
 
 
@@ -121,7 +128,7 @@ const AgendaDisponible =() => {
                             </thead>
 
                             <tbody className="table-light">
-                                {agendas.map((agenda) => {
+                                {agendasId.map((agenda) => {
                                     return (
                                         <tr key={agenda._id}>
                                            
@@ -185,4 +192,4 @@ const AgendaDisponible =() => {
 
 
 
-export default AgendaDisponible
+export default AgendaDisponibleId

@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom';
 
 const CrearAgenda = ({ token }) => {
 
+   
+
     const [examenesD, setExamenesD] = useState([]);
 
     useEffect(() => {
@@ -35,15 +37,15 @@ const CrearAgenda = ({ token }) => {
 
         const agenda = {
 
-            examen:"",
-            dia: e.target.fecha.value,
+            
+            examen: e.target.examen.value,
+            dia: e.target.dia.value,
             hora: e.target.hora.value,
             paciente: "",
             nombre: "",
             estado: "Disponible",
             resultado: "Pendiente",
-
-
+         
         }
 
         datos_agenda(agenda)
@@ -103,26 +105,27 @@ const CrearAgenda = ({ token }) => {
                                             <div className="col-sm-12">
                                                 <div class="form-group">
 
-                                                    <select name="fecha" class="form-select" id="exampleFormControlSelect1" >
+                                                    <select  name="examen" class="form-select" id="exampleFormControlSelect1" >
                                                         <option selected>Seleccionar Examen</option>
 
                                                         {examenesD.map((examenD) => {
                                                             return (
                                                                 
-                                                                <option vakue="nombre" value= {examenD.nombre}>{examenD.nombre}</option>
+                                                                <option  >{examenD.nombre}</option>
                                                             );
                                                         })}
                                                         
                                                       
                                                     </select>
                                                 </div>
+                                             
                                             </div>
                                         </div>
 
                                         <div className="form-group row">
                                             <div className="col-sm-6 mb-3 mb-sm-0">
                                                 <input type="date" className="form-control form-control-user" id="fecha"
-                                                    name="fecha" />
+                                                    name="dia" />
                                             </div>
                                             <div className="col-sm-6">
                                                 <input type="time" className="form-control form-control-user" id="hora"

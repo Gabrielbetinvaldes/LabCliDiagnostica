@@ -1,21 +1,28 @@
 import React, { useState, useEffect } from "react";
 import Titulo from "../../components/Titulo/Titulo";
 import Header from "../../components/header/Header";
+import { useParams } from "react-router-dom";
 
 
 
 
-const AgendaDisponible =() => {
+const ConsultarAgendaId = (props) => {
 
     const [agendas, setAgendas] = useState([]);
     const [examenesD, setExamenesD] = useState([]);
+    const [agendasId, setAgendasId] = useState([]);
+    let { nombre_examen } = useParams();
 
     useEffect(() => {
         obtener_examen();
-        clickBoton();
-
+        fetch(`http://localhost:8080/api/Agendas/${nombre_examen}`)
+        .then((response) => response.json())
+        .then((data) => {
+            setAgendasId(data);
+        });
     });
 
+    console.log(nombre_examen);
 
     let clickBoton = () => {
         fetch("http://localhost:8080/api/Agendas")
@@ -39,7 +46,6 @@ const AgendaDisponible =() => {
     }
 
 
-
     const eliminar_examen = (id_agenda) => {
         fetch(`http://localhost:8080/api/eliminar_agenda/${id_agenda}`, {
             method: 'DELETE',
@@ -53,12 +59,10 @@ const AgendaDisponible =() => {
             });
     };
 
-
- 
-        return (
+    return (
 
 
-            <div>
+        <div>
 
             <Header />
             <Titulo titulo='Laboratorio Clínico Diagnostica' />
@@ -73,7 +77,7 @@ const AgendaDisponible =() => {
                     <div className="form-group row">
 
                         <div className="col-sm-4 mb-3 mb-sm-0">
-                            <h6 className="m-2 font-weight-bold text-success">Consultar Citas Disponibles</h6>
+                            <h6 className="m-2 font-weight-bold text-success">Consultar Agendas Creadas</h6>
                         </div>
 
 
@@ -86,7 +90,7 @@ const AgendaDisponible =() => {
 
                                     {examenesD.map((examenD) => {
                                         return (
-                                            <a class="dropdown-item" href={`/AgendaDisponibleId/${examenD.nombre}`}>{examenD.nombre}</a>
+                                            <a class="dropdown-item" href={`/ConsultarAgendaId/${examenD.nombre}`}>{examenD.nombre}</a>
 
                                         );
                                     })}
@@ -111,28 +115,28 @@ const AgendaDisponible =() => {
                         <table className="table " id="dataTable" width="100%" cellspacing="0">
                             <thead className="table-success">
                                 <tr>
-                                   
+                                    <th>Id Agenda</th>
                                     <th>Nombre Del Examen</th>
                                     <th>Fecha</th>
                                     <th>Hora</th>
-                                    <th>Seleccionar</th>
-                                    
+                                    <th>Editar</th>
+                                    <th>Eliminar</th>
                                 </tr>
                             </thead>
 
                             <tbody className="table-light">
-                                {agendas.map((agenda) => {
+                                {agendasId.map((agenda) => {
                                     return (
                                         <tr key={agenda._id}>
-                                           
+                                            <td>{agenda._id}</td>
                                             <td>{agenda.examen}</td>
                                             <td>{agenda.dia}</td>
                                             <td>{agenda.hora}</td>
 
-     
+                                            <td><button type="submit" className="btn btn-success btn-user btn-block">  Editar </button> </td>
 
 
-                                            <td><button id={agenda._id} onClick={click_eliminar} href="/ConsultarAgenda" className="btn btn-success btn-user btn-block">  Seleccionar</button> </td>
+                                            <td><button id={agenda._id} onClick={click_eliminar} href="/ConsultarAgenda" className="btn btn-success btn-user btn-block">  Eliminar </button> </td>
                                         </tr>
 
                                     );
@@ -165,24 +169,9 @@ const AgendaDisponible =() => {
 
         </div>
 
+    )
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-        )
-    }
-
-
-
-
-export default AgendaDisponible
+export default ConsultarAgendaId

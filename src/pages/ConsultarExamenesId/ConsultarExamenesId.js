@@ -14,7 +14,7 @@ const ConsultarExamenesId = (props) => {
 
     let { id_examen } = useParams();
 
-
+ 
 
     useEffect(() => {
         obtener_examen();

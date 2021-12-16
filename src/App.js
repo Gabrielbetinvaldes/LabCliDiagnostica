@@ -11,7 +11,9 @@ import CrearResultados from "./pages/CrearResultados/CrearResultados";
 import ConsultarResultados from "./pages/ConsultarResultados/ConsultarResultados";
 import CrearAgenda from "./pages/CrearAgenda/CrearAgenda";
 import ConsultarAgenda from "./pages/ConsultarAgenda/ConsultarAgenda";
+import ConsultarAgendaId from "./pages/ConsultarAgendaId/ConsultarAgendaId";
 import AgendaDisponible from "./pages/AgendaDisponible/AgendaDisponible";
+import AgendaDisponibleId from "./pages/AgendaDisponibleId/AgendaDisponibleId";
 import CancelarCitas from "./pages/CancelarCitas/CancelarCitas";
 import EditarExamenes from "./pages/EditarExamenes/EditarExamenes";
 import EliminarExamenes from "./pages/EliminarExamenes/EliminarExamenes";
@@ -52,7 +54,9 @@ const App = () => {
                 <Route path="/EditarAgenda" element={<EditarAgenda />} />
                 <Route path="/EliminarAgenda" element={<EliminarAgenda />} />
                 <Route path="/ConsultarAgenda" element={<ConsultarAgenda />} />
+                <Route path="/ConsultarAgendaId/:nombre_examen" element={<ConsultarAgendaId />} />
                 <Route path="/AgendaDisponible" element={<AgendaDisponible />} />
+                <Route path="/AgendaDisponibleId/:nombre_examen" element={<AgendaDisponibleId />} />
                 <Route path="/CancelarCitas" element={<CancelarCitas />} />
                 <Route path="/Notificaciones" element={<Notificaciones />} />
 
