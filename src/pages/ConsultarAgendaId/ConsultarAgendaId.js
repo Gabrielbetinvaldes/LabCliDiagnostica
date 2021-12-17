@@ -133,8 +133,8 @@ const ConsultarAgendaId = (props) => {
                                             <td>{agenda.dia}</td>
                                             <td>{agenda.hora}</td>
 
-                                            <td><button type="submit" className="btn btn-success btn-user btn-block">  Editar </button> </td>
 
+                                            <td><a   href={`/EditarAgenda/${agenda._id}`} className="btn btn-success btn-user btn-block">  Editar </a></td>
 
                                             <td><button id={agenda._id} onClick={click_eliminar} href="/ConsultarAgenda" className="btn btn-success btn-user btn-block">  Eliminar </button> </td>
                                         </tr>

@@ -16,7 +16,7 @@ const AgendaDisponibleId =(props) => {
 
     useEffect(() => {
         obtener_examen();
-        fetch(`http://localhost:8080/api/Agendas/${nombre_examen}`)
+        fetch(`http://localhost:8080/api/AgendasExterno/${nombre_examen}`)
         .then((response) => response.json())
         .then((data) => {
             setAgendasId(data);
@@ -39,24 +39,29 @@ const AgendaDisponibleId =(props) => {
                 setExamenesD(data);
             });
     };
-    const click_eliminar = (e) => {
+    const click_seleccionar= (e) => {
         const id = e.target.id
+      
 
-        eliminar_examen(id);
+        seleccionar_examen(id);
     }
 
 
 
-    const eliminar_examen = (id_agenda) => {
-        fetch(`http://localhost:8080/api/eliminar_agenda/${id_agenda}`, {
-            method: 'DELETE',
+    const seleccionar_examen = (id_agenda) => {
+        console.log(id_agenda)
+        fetch(`http://localhost:8080/api/seleccionar_agenda/${id_agenda}`, {
+            method: 'PUT',
+            body: JSON.stringify(agendasId),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                 
             }
         }).then(res => res.json())
             .catch(error => console.error('Error:', error))
             .then(response => {
-                window.location.href = "/ConsultarAgenda";
+                alert('Agenda Seleccionada')
+                
             });
     };
 
@@ -84,7 +89,7 @@ const AgendaDisponibleId =(props) => {
                         </div>
 
 
-                        <div className="col-sm-5 mb-3 mb-sm-0 form-group">
+                        <div className="col-sm-4 mb-3 mb-sm-0 form-group">
                             <div class="dropdown">
                                 <button class="btn btn-succes dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Tipos De Examenes Medicos
@@ -102,7 +107,10 @@ const AgendaDisponibleId =(props) => {
                             </div>
                         </div>
 
-
+                        <div className="col-sm-4">
+                                    <input type="text" className="form-control form-control-user" id="exampleLastName"
+                                        placeholder="Documento De Identidad" name = "paciente" />
+                                </div>
 
 
 
@@ -139,7 +147,7 @@ const AgendaDisponibleId =(props) => {
      
 
 
-                                            <td><button id={agenda._id} onClick={click_eliminar} href="/ConsultarAgenda" className="btn btn-success btn-user btn-block">  Seleccionar</button> </td>
+                                            <td><button id={agenda._id} onClick={click_seleccionar}  className="btn btn-success btn-user btn-block">  Seleccionar</button> </td>
                                         </tr>
 
                                     );

@@ -5,33 +5,34 @@ import Header from "../../components/header/Header";
 
 
 
-const CancelarCitas =() => {
+const CancelarCitas = ({bus}) => {
 
     const [agendas, setAgendas] = useState([]);
-    const [examenesD, setExamenesD] = useState([]);
+    
+    const enviar_formulario = e => {
+        e.preventDefault()
 
-    useEffect(() => {
-        obtener_examen();
-        clickBoton();
+        const cedPaciente = {
+            paciente: e.target.paciente.value,            
+        }
 
-    });
+        clickBoton(cedPaciente.paciente)
+       
+    }
+ 
 
 
-    let clickBoton = () => {
-        fetch("http://localhost:8080/api/Agendas")
+    let clickBoton = (cedula) => {
+        fetch(`http://localhost:8080/api/AgendasExterno/${cedula}`)
             .then((response) => response.json())
             .then((data) => {
                 setAgendas(data);
             });
+
+       
     };
 
-    const obtener_examen = () => {
-        fetch("http://localhost:8080/api/Examenes")
-            .then((response) => response.json())
-            .then((data) => {
-                setExamenesD(data);
-            });
-    };
+ 
     const click_eliminar = (e) => {
         const id = e.target.id
 
@@ -54,10 +55,10 @@ const CancelarCitas =() => {
     };
 
 
-        return (
+    return (
 
 
-            <div>
+        <div>
 
             <Header />
             <Titulo titulo='Laboratorio Clínico Diagnostica' />
@@ -70,36 +71,37 @@ const CancelarCitas =() => {
 
 
                     <div className="form-group row">
+                        <form className="user" onSubmit={enviar_formulario}>
 
-                        <div className="col-sm-4 mb-3 mb-sm-0">
-                            <h6 className="m-2 font-weight-bold text-success">Consultar Citas Disponibles</h6>
-                        </div>
+                            <div className="form-group row">
 
-
-                        <div className="col-sm-5 mb-3 mb-sm-0 form-group">
-                            <div class="dropdown">
-                                <button class="btn btn-succes dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Tipos De Examenes Medicos
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-                                    {examenesD.map((examenD) => {
-                                        return (
-                                            <a class="dropdown-item" href={`/AgendaDisponibleId/${examenD.nombre}`}>{examenD.nombre}</a>
-
-                                        );
-                                    })}
-
+                                <div className="col-sm-2 mb-3 mb-sm-0">
+                                    <h6 className="m-2 font-weight-bold text-success">Cancelar citas</h6>
                                 </div>
+
+                                <div className="col-sm-4">
+                                    <input type="text" className="form-control form-control-user" id="exampleLastName"
+                                        placeholder="Documento De Identidad" name = "paciente" />
+                                </div>
+
+                                <div className="col-sm-4">
+
+                                    <button type="submit" className="btn btn-success btn-user btn-block"> Consultar</button>
+                                </div>
+
                             </div>
-                        </div>
 
-
-
-
+                        </form>
 
 
                     </div>
+
+
+
+
+
+
+
 
 
 
@@ -110,12 +112,12 @@ const CancelarCitas =() => {
                         <table className="table " id="dataTable" width="100%" cellspacing="0">
                             <thead className="table-success">
                                 <tr>
-                                   
+
                                     <th>Nombre Del Examen</th>
                                     <th>Fecha</th>
                                     <th>Hora</th>
                                     <th>Seleccionar</th>
-                                    
+
                                 </tr>
                             </thead>
 
@@ -123,15 +125,15 @@ const CancelarCitas =() => {
                                 {agendas.map((agenda) => {
                                     return (
                                         <tr key={agenda._id}>
-                                           
+
                                             <td>{agenda.examen}</td>
                                             <td>{agenda.dia}</td>
                                             <td>{agenda.hora}</td>
 
-     
 
 
-                                            <td><button id={agenda._id} onClick={click_eliminar} href="/ConsultarAgenda" className="btn btn-success btn-user btn-block">  Seleccionar</button> </td>
+
+                                            <td><button id={agenda._id} onClick={click_eliminar} href="/ConsultarAgenda" className="btn btn-success btn-user btn-block"> Cancelar cita</button> </td>
                                         </tr>
 
                                     );
@@ -177,8 +179,8 @@ const CancelarCitas =() => {
 
 
 
-        )
-    }
+    )
+}
 
 
 

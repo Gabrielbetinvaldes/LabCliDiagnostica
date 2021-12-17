@@ -44,14 +44,14 @@ const App = () => {
                 <Route path="/RegistroAdmin" element={<RegistroAdmin />} />
                 <Route path="/Dashboard" element={<Dashboard />} />
                 <Route path="/CrearExamenes" element={<CrearExamenes />} />
-                <Route path="/EditarExamenes" element={<EditarExamenes />} />
+                <Route path="/EditarExamenes/:id_examen" element={<EditarExamenes />} />
                 <Route path="/EliminarExamenes" element={<EliminarExamenes />} />
                 <Route path="/ConsultarExamenes" element={<ConsultarExamenes />} />
                 <Route path="/ConsultarExamenes/:id_examen" element={<ConsultarExamenesId />} />
                 <Route path="/IngresarResultado" element={<CrearResultados />} />
                 <Route path="/ConsultarResultados" element={<ConsultarResultados />} />
                 <Route path="/CrearAgenda" element={<CrearAgenda />} />
-                <Route path="/EditarAgenda" element={<EditarAgenda />} />
+                <Route path="/EditarAgenda/:id_agenda" element={<EditarAgenda />} />
                 <Route path="/EliminarAgenda" element={<EliminarAgenda />} />
                 <Route path="/ConsultarAgenda" element={<ConsultarAgenda />} />
                 <Route path="/ConsultarAgendaId/:nombre_examen" element={<ConsultarAgendaId />} />

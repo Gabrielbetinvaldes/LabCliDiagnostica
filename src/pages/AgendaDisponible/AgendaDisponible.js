@@ -12,7 +12,7 @@ const AgendaDisponible =() => {
 
     useEffect(() => {
         obtener_examen();
-        clickBoton();
+     
 
     });
 

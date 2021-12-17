@@ -131,8 +131,9 @@ const ConsultarExamenesId = (props) => {
                                             <td>{examenesId.nombre}</td>
                                             <td>{examenesId.rangoMin}</td>
                                             <td>{examenesId.rangoMax}</td>
-                                            <td><button type="submit"  className="btn btn-success btn-user btn-block">  Editar </button> </td>
+                                            
 
+                                            <td><a   href={`/EditarExamenes/${examenesId._id}`} className="btn btn-success btn-user btn-block">  Editar </a></td>
                                           
                                             <td><button id={examenesId._id} onClick={click_eliminar} href="/ConsultarExamenes" className="btn btn-success btn-user btn-block">  Eliminar </button> </td>
                                         </tr>

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Titulo from "../../components/Titulo/Titulo";
 import Header from "../../components/header/Header";
+import { useParams } from "react-router-dom";
 
 
 
 
-const ConsultarExamenes = () => {
+const ConsultarExamenes = (props) => {
 
     const [examenes, setExamenes] = useState([]);
     const [examenesD, setExamenesD] = useState([]);
@@ -31,6 +32,8 @@ const ConsultarExamenes = () => {
 
         eliminar_examen(id);
     }
+
+
 
 
 
@@ -140,11 +143,12 @@ const ConsultarExamenes = () => {
                                             <td>{examen.rangoMin}</td>
                                             <td>{examen.rangoMax}</td>
 
-                                            <td><button type="submit" className="btn btn-success btn-user btn-block">  Editar </button> </td>
-
+                                         
+                                            <td><a   href={`/EditarExamenes/${examen._id}`} className="btn btn-success btn-user btn-block">  Editar </a></td>
 
                                             <td><button id={examen._id} onClick={click_eliminar} href="/ConsultarExamenes" className="btn btn-success btn-user btn-block">  Eliminar </button> </td>
                                         </tr>
+                                      
 
                                     );
                                 })}
