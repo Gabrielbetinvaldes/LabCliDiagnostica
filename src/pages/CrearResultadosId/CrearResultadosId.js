@@ -3,32 +3,49 @@ import Titulo from "../../components/Titulo/Titulo";
 import Header from "../../components/header/Header";
 import { useParams, useNavigate } from "react-router-dom";
 
-const CrearResultados = (props) => {
+const CrearResultadosId = (props) => {
 
+    let { id_agenda } = useParams();
+ 
     const [agendas, setAgendas] = useState([]);
 
 
+    useEffect(() => {
+        fetch(`http://localhost:8080/api/AgendasIdIngresar/${id_agenda}`)
+            .then((response) => response.json())
+            .then((data) => {
+                setAgendas(data);
+               
+            });
+
+    });
     const enviar_formulario = e => {
         e.preventDefault()
 
         const cedPaciente = {
-            paciente: e.target.paciente.value,
+            resultado: e.target.resultado.value,
+            _id: e.target._id.value,
         }
 
-        clickBoton(cedPaciente.paciente)
+        clickBoton(cedPaciente._id,cedPaciente)
 
 
     }
 
 
-    let clickBoton = (cedula) => {
-        console.log(cedula)
 
-        fetch(`http://localhost:8080/api/AgendasExternoCedula/${cedula}`)
-            .then((response) => response.json())
-            .then((data) => {
-                setAgendas(data);
-                console.log(data)
+    let clickBoton = (id_agenda,datos) => {
+        fetch(`http://localhost:8080/api/ingresar_resultado/${id_agenda}`, {
+            method: 'PUT',
+            body: JSON.stringify(datos),
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(async response => {
+
+                alert('Resultado registrado')
             });
 
 
@@ -65,14 +82,18 @@ const CrearResultados = (props) => {
 
                                         <div className="form-group row">
 
-
-
                                             <div className="col-sm-6">
                                                 <input type="text" className="form-control form-control-user" id="exampleLastName"
-                                                    placeholder="Documento De Identidad" name="paciente" />
+                                                    placeholder="Id" name="_id" value = {agendas._id} />
                                             </div>
 
-                                            <div className="col-sm-6">
+
+                                            <div className="col-sm-3">
+                                                <input type="text" className="form-control form-control-user" id="exampleLastName"
+                                                    placeholder="Resultado" name="resultado" />
+                                            </div>
+
+                                            <div className="col-sm-3">
 
                                                 <button type="submit" className="btn btn-success btn-user btn-block"> Consultar</button>
                                             </div>
@@ -100,20 +121,20 @@ const CrearResultados = (props) => {
                                                 </thead>
 
                                                 <tbody className="table-light">
-                                                    {agendas.map((agenda) => {
-                                                        return (
-                                                            <tr key={agenda._id}>
+                                                   
+                                                      
+                                                            <tr key={agendas._id}>
 
-                                                                <td>{agenda.nombre}</td>
-                                                                <td>{agenda.examen}</td>                                                               
-                                                                <td>{agenda.hora}</td>
-                                                                <td>{agenda.dia}</td>
-                                                                <td><a   href={`/IngresarResultadosId/${agenda._id}`} className="btn btn-success btn-user btn-block">  Ingresar </a></td>
+                                                                <td>{agendas.nombre}</td>
+                                                                <td>{agendas.examen}</td>
+                                                                <td>{agendas.hora}</td>
+                                                                <td>{agendas.dia}</td>
+                                                                <td>{agendas.resultado}</td>
 
                                                             </tr>
 
-                                                        );
-                                                    })}
+                                                     
+                                                 
 
                                                 </tbody>
                                                 <tfoot></tfoot>
@@ -138,4 +159,4 @@ const CrearResultados = (props) => {
 
 
 
-export default CrearResultados
+export default CrearResultadosId

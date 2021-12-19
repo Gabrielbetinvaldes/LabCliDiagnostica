@@ -17,16 +17,20 @@ const CancelarCitas = ({bus}) => {
         }
 
         clickBoton(cedPaciente.paciente)
+        
        
     }
  
 
 
     let clickBoton = (cedula) => {
-        fetch(`http://localhost:8080/api/AgendasExterno/${cedula}`)
+        console.log(cedula)
+     
+        fetch(`http://localhost:8080/api/AgendasExternoCedula/${cedula}`)
             .then((response) => response.json())
             .then((data) => {
                 setAgendas(data);
+                console.log(data)
             });
 
        
@@ -42,15 +46,15 @@ const CancelarCitas = ({bus}) => {
 
 
     const eliminar_examen = (id_agenda) => {
-        fetch(`http://localhost:8080/api/eliminar_agenda/${id_agenda}`, {
-            method: 'DELETE',
+        fetch(`http://localhost:8080/api/eliminar_agendaExterno/${id_agenda}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             }
         }).then(res => res.json())
             .catch(error => console.error('Error:', error))
             .then(response => {
-                window.location.href = "/ConsultarAgenda";
+                window.location.href = "/AgendaDisponible";
             });
     };
 

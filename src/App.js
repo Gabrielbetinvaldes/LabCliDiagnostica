@@ -8,6 +8,7 @@ import CrearExamenes from "./pages/CrearExamenes/CrearExamenes";
 import ConsultarExamenes from "./pages/ConsultarExamenes/ConsultarExamenes";
 import ConsultarExamenesId from "./pages/ConsultarExamenesId/ConsultarExamenesId";
 import CrearResultados from "./pages/CrearResultados/CrearResultados";
+import CrearResultadosId from "./pages/CrearResultadosId/CrearResultadosId";
 import ConsultarResultados from "./pages/ConsultarResultados/ConsultarResultados";
 import CrearAgenda from "./pages/CrearAgenda/CrearAgenda";
 import ConsultarAgenda from "./pages/ConsultarAgenda/ConsultarAgenda";
@@ -49,6 +50,7 @@ const App = () => {
                 <Route path="/ConsultarExamenes" element={<ConsultarExamenes />} />
                 <Route path="/ConsultarExamenes/:id_examen" element={<ConsultarExamenesId />} />
                 <Route path="/IngresarResultado" element={<CrearResultados />} />
+                <Route path="/IngresarResultadosId/:id_agenda" element={<CrearResultadosId />} />
                 <Route path="/ConsultarResultados" element={<ConsultarResultados />} />
                 <Route path="/CrearAgenda" element={<CrearAgenda />} />
                 <Route path="/EditarAgenda/:id_agenda" element={<EditarAgenda />} />
